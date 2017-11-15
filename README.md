@@ -37,3 +37,27 @@ Um guia que explora os benefícios de utilizar o Git como ferramenta de controle
 
 #### Comitei com o usuario e email errado
 ``` $git commit --amend --author "Novo author <emailautor@dominio.com>" ```
+
+#### Quero deletar meu ultimo commit
+Não recomendado e não faça isso, mas um jeito de deletar um commit após o push é:
+
+``` git reset HEAD^ --hard ```
+
+``` git push --force-with-lease [remote] [branch] ```
+
+Jeito recomendado...
+
+``` git revert <SHAdoCommitEraddo> ```
+
+Para resetar se você ainda não deu push e mantendo mudanças staged
+
+``` (branch)$ git reset --soft HEAD@{1} ```
+
+#### Acidentalmente eu dei um reset hard, como volto reverto isso?
+Você acidentalmente fez isso? Se fodeo! Já era! Brinks... O git mantém um log de tudo por alguns dias(foda, não?).
+
+``` (master)$ git reflog ```
+
+Você verá uma lista dos commits passados. Só escolher o SHA do tal commit e resetar para ele.
+
+``` (master)$ git reset --hard <SHACommitResetaHardimente> ```
