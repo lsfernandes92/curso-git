@@ -84,6 +84,41 @@ Você verá uma lista dos commits passados. Só escolher o SHA do tal commit e r
 
 `(master)$ git reset --hard <SHACommitResetaHardimente>`
 
+### Comitei com autor e email errado, consigo alterar?
+Yes! Github tem uma página pública com isso, mas basicamente é o seguinte:
+
+* Abra o terminal
+* De um "bare" clone
+  * `git clone --bare https://github.com/user/repo.git`
+  * `cd repo.git`
+* Copie e cole o script alterando as variáveis(OLD_EMAIL, CORRECT_NAME, CORRECT_EMAIL) com suas informações
+```
+git filter-branch --env-filter '
+OLD_EMAIL="your-old-email@example.com"
+CORRECT_NAME="Your Correct Name"
+CORRECT_EMAIL="your-correct-email@example.com"
+if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_COMMITTER_NAME="$CORRECT_NAME"
+    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+fi
+if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_AUTHOR_NAME="$CORRECT_NAME"
+    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+fi
+' --tag-name-filter cat -- --branches --tags
+```
+* Dê um enter
+* Revise o log de commits
+* Dê um push para o repo
+  * `git push --force --tags origin 'refs/heads/*'`
+* Apague o repo temporário
+  * `cd ..`
+  * `rm -rf repo.git`
+
+[Link referência do GitHub](https://help.github.com/articles/changing-author-info/)
+
 # Outros
 ### Tutoriais
 * [git - guia prático](http://rogerdudler.github.io/git-guide/index.pt_BR.html) - Guia prático e sem complicação
