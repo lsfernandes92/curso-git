@@ -9,36 +9,36 @@ Um guia que explora os benefícios de utilizar o Git como ferramenta de controle
 * Não depende de uma conexão ativa com um servidor
 
 ### Alguns comandos de funcionalidade do git:
-#### $git rebase
+### $git rebase
 * Evita vários commits de merge
 * Evita commits de merge desnecessários
 
-#### $git stash
+### $git stash
 * Utilizado para deixar o desenvolvimento atual salvo
 * Usado para arrumar bugs antes de fazer commits inacabados
 
-#### $git checkout
+### $git checkout
 * Apaga tudo feito no working directory
 
-#### $git reset HEAD [nome_arquivo]
+### $git reset HEAD [nome_arquivo]
 * Apaga tudo que está no index
 
-#### $git reset [hash_commit]
+### $git reset [hash_commit]
 * Reseta tudo até o hash do commit
 
-### Editando commits
-#### O que acabei de comitar?
+# Editando commits
+### O que acabei de comitar?
 ``` $git show ```
 
-#### Escrevi a mensagem de commit errada antes de dar push
+### Escrevi a mensagem de commit errada antes de dar push
 ``` $git commit --amend ```
 
 ``` $git commit --amend -m "xxxxx" ```
 
-#### Comitei com o usuario e email errado
+### Comitei com o usuario e email errado
 ``` $git commit --amend --author "Novo author <emailautor@dominio.com>" ```
 
-#### Quero deletar meu ultimo commit
+### Quero deletar meu ultimo commit
 Não recomendado e não faça isso, mas um jeito de deletar um commit após o push é:
 
 ``` git reset HEAD^ --hard ```
@@ -53,7 +53,7 @@ Para resetar se você ainda não deu push e mantendo mudanças staged
 
 ``` (branch)$ git reset --soft HEAD@{1} ```
 
-#### Acidentalmente eu dei um reset hard, como volto reverto isso?
+### Acidentalmente eu dei um reset hard, como volto reverto isso?
 Você acidentalmente fez isso? Se fodeo! Já era! Brinks... O git mantém um log de tudo por alguns dias(foda, não?).
 
 ``` (master)$ git reflog ```
