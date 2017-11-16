@@ -8,6 +8,25 @@ Um guia que explora os benefícios de utilizar o Git como ferramenta de controle
 * Permite a edição concorrente de arquivos do projeto
 * Não depende de uma conexão ativa com um servidor
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Alguns comandos de funcionalidade do git:](#alguns-comandos-de-funcionalidade-do-git)
+    - [$git rebase](#git-rebase)
+    - [$git stash](#git-stash)
+    - [$git checkout](#git-checkout)
+    - [$git reset HEAD [nome_arquivo]](#git-reset-head-nome_arquivo)
+    - [$git reset [hash_commit]](#git-reset-hash_commit)
+- [Editando commits](#editando-commits)
+    - [O que acabei de comitar?](#o-que-acabei-de-comitar)
+    - [Escrevi a mensagem de commit errada antes de dar push](#escrevi-a-mensagem-de-commit-errada-antes-de-dar-push)
+    - [Comitei com o usuario e email errado](#comitei-com-o-usuario-e-email-errado)
+    - [Quero deletar meu ultimo commit](#quero-deletar-meu-ultimo-commit)
+    - [Acidentalmente eu dei um reset hard, como volto reverto isso?](#acidentalmente-eu-dei-um-reset-hard-como-volto-reverto-isso)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ### Alguns comandos de funcionalidade do git:
 ### $git rebase
 * Evita vários commits de merge
