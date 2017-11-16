@@ -58,6 +58,8 @@ Você acidentalmente fez isso? Se fodeo! Já era! Brinks... O git mantém um log
 
 ``` (master)$ git reflog ```
 
+TESET RESET HARD
+
 Você verá uma lista dos commits passados. Só escolher o SHA do tal commit e resetar para ele.
 
 ``` (master)$ git reset --hard <SHACommitResetaHardimente> ```
