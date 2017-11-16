@@ -14,6 +14,7 @@
     - [Comitei com o usuario e email errado](#comitei-com-o-usuario-e-email-errado)
     - [Quero deletar meu ultimo commit](#quero-deletar-meu-ultimo-commit)
     - [Acidentalmente eu dei um reset hard para outro commit, como volto reverto isso?](#acidentalmente-eu-dei-um-reset-hard-para-outro-commit-como-volto-reverto-isso)
+    - [Comitei com autor e email errado, consigo alterar?](#comitei-com-autor-e-email-errado-consigo-alterar)
 - [Outros](#outros)
     - [Tutoriais](#tutoriais)
     - [Dicas](#dicas)
