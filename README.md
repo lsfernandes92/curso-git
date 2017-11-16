@@ -90,3 +90,5 @@ Você verá uma lista dos commits passados. Só escolher o SHA do tal commit e r
 
 ### Dicas
 * [Flight rules for git](https://github.com/k88hudson/git-flight-rules) - Guia do que fazer quando fazemos alguma caquinha (onde me espelhei)
+
+teste sa porra
