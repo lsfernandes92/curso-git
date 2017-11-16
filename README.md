@@ -72,7 +72,7 @@ Para resetar se você ainda não deu push e mantendo mudanças staged
 
 ``` (branch)$ git reset --soft HEAD@{1} ```
 
-### Acidentalmente eu dei um reset hard, como volto reverto isso?
+### Acidentalmente eu dei um reset hard para outro commit, como volto reverto isso?
 Você acidentalmente fez isso? Se fodeo! Já era! Brinks... O git mantém um log de tudo por alguns dias(foda, não?).
 
 ``` (master)$ git reflog ```
