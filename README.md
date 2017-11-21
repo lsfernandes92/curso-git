@@ -26,10 +26,13 @@
 
 Um guia que explora os benefícios de utilizar o Git como ferramenta de controle de versão para projetos em qualquer linguagem, em qualquer plataforma.
 
-#### Principais benefícios:
+#### Principais benefícios do Git:
 * Funciona de maneira distribuída
 * Permite a edição concorrente de arquivos do projeto
 * Não depende de uma conexão ativa com um servidor
+* Mantém histórico do que é feito no projeto
+* Marca diferentes versões para o projeto
+* Controle total do que se passa e do que pode ser feito com o seu repositóriooo
 
 ### Alguns comandos de funcionalidade do git:
 ### $git rebase
@@ -85,7 +88,7 @@ Você verá uma lista dos commits passados. Só escolher o SHA do tal commit e r
 
 `(master)$ git reset --hard <SHACommitResetaHardimente>`
 
-### Comitei com autor e email errado, consigo alterar?
+### Todos meus commits foram com email e autor errado, consigo alterar?
 Yes! Github tem uma página pública com isso, mas basicamente é o seguinte:
 
 * Abra o terminal
