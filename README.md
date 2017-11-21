@@ -59,6 +59,8 @@ Um guia que explora os benefícios de utilizar o Git como ferramenta de controle
 ### Escrevi a mensagem de commit errada antes de dar push
 `$git commit --amend`
 
+ou
+
 `$git commit --amend -m "xxxxx"`
 
 ### Comitei com o usuario e email errado
@@ -122,6 +124,34 @@ fi
   * `rm -rf repo.git`
 
 [Link referência do GitHub](https://help.github.com/articles/changing-author-info/)
+
+# Staging
+### Queria adicionar alterações Staged's(após git add) no commit anterior
+`(branch)$git commit --amend`
+
+# Branches
+### Quero deletar minha branch remota
+Para uma branch remota...
+
+`(master)$git push origin -d nome_branch`
+
+ou
+
+`(master)$git push origin :nome_branch`
+
+E para uma local
+
+`(master)$git branch -d nome_branch`
+
+## Quero renomear uma branch
+Para uma branch local atual(checkout)...
+
+`(master)$git branch -m novo_nome`
+
+Ou uma outra local mas não dada checkout
+
+`(master)$git branch -m nome_branch_antiga nome_nome_branch`
+
 
 # Outros
 ### Tutoriais
