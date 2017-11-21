@@ -180,6 +180,15 @@ Hora de voltar para master e "acidentalmente" excluir minha branch
 (master)$ git reflog
 ```
 
+Agora basta pegar o hash do commit da branch deletada e restaurar nossa branch deletada
+
+```
+(master)$ git checkout -b my_temp_branch
+(my_temp_branch)$ git reset --hard 4e3cd85
+```
+
+Ouvi um amém? :D
+
 # Outros
 ### Tutoriais
 * [git - guia prático](http://rogerdudler.github.io/git-guide/index.pt_BR.html) - Guia prático e sem complicação
