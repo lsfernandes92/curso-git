@@ -143,7 +143,7 @@ E para uma local
 
 `(master)$git branch -d nome_branch`
 
-## Quero renomear uma branch
+### Quero renomear uma branch
 Para uma branch local atual(checkout)...
 
 `(master)$git branch -m novo_nome`
@@ -152,6 +152,33 @@ Ou uma outra local mas não dada checkout
 
 `(master)$git branch -m nome_branch_antiga nome_nome_branch`
 
+### Acidentalmente exclui minha branch
+Irei simular possível acontecimento.
+
+Começarei criando uma branch para trabalhar.
+
+`(master)$git checkout -b test_branch_to_delete`
+
+Agora vou editar meu arquivo README.md com esse passo-a-passo de como *(spoiler alert)"resetar"* minha branch excluída e irei commitar o resultado.
+```
+(test_branch_to_delete)$git add .
+(test_branch_to_delete)$git commit -m "Added section "Reset branch after deleted""
+
+(test_branch_to_delete)$git log
+```
+
+Hora de voltar para master e "acidentalmente" excluir minha branch
+
+```
+(test_branch_to_delete)$git checkout master
+(master)$git branch -d test_branch_to_delete
+```
+
+É ai que entra nossa amigo `reflog`. Que funciona como o logger do que é feito no repo.
+
+```
+(master)$ git reflog
+```
 
 # Outros
 ### Tutoriais
@@ -159,5 +186,3 @@ Ou uma outra local mas não dada checkout
 
 ### Dicas
 * [Flight rules for git](https://github.com/k88hudson/git-flight-rules) - Guia do que fazer quando fazemos alguma caquinha (onde me espelhei)
-
-teste sa porra
