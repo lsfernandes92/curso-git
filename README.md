@@ -162,32 +162,52 @@ Começarei criando uma branch para trabalhar.
 Agora vou editar meu arquivo README.md com esse passo-a-passo de como *(spoiler alert)"resetar"* minha branch excluída e irei commitar o resultado.
 ```
 (test_branch_to_delete)$git add .
-(test_branch_to_delete)$git commit -m "Added section "Reset branch after deleted""
+(test_branch_to_delete)$git commit -m "Added section 'Reset branch after deleted'"
+[test_branch_to_delete cc7e264] Added section 'Reset branch after deleted'
+ 1 file changed, 9 insertions(+)
 
 (test_branch_to_delete)$git log
+commit cc7e2644bfbf94e962d0cdad6cdd03247702338e
+Author: xb193513 <p000lufernandes@prservicos.com.br>
+Date:   Tue Nov 21 17:40:09 2017 -0200
+
+    Added section 'Reset branch after deleted'
 ```
 
 Hora de voltar para master e "acidentalmente" excluir minha branch
 
 ```
 (test_branch_to_delete)$git checkout master
-(master)$git branch -d test_branch_to_delete
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+
+(master)$git branch -D test_branch_to_delete
+Deleted branch test_branch_to_delete (was cc7e264).
 ```
 
 É ai que entra nossa amigo `reflog`. Que funciona como o logger do que é feito no repo.
 
 ```
-(master)$ git reflog
+(master)$git reflog
+17ea9fe HEAD@{0}: checkout: moving from test_branch_to_delete to master
+cc7e264 HEAD@{1}: commit: Added section 'Reset branch after deleted'
+06d3d90 HEAD@{2}: commit: <--commit-filter 'if [ = p000lufernandes@prservicos.com.br ]; START doctoc generated TOC please keep comment here to allow auto update -->
+17ea9fe HEAD@{3}: checkout: moving from master to test_branch_to_delete
+17ea9fe HEAD@{4}: commit: Added sections BRANCHES and Staging
+1925529 HEAD@{5}: checkout: moving from outra_branch_teste to master
 ```
 
 Agora basta pegar o hash do commit da branch deletada e restaurar nossa branch deletada
 
 ```
-(master)$ git checkout -b my_temp_branch
-(my_temp_branch)$ git reset --hard 4e3cd85
+(master)$git checkout -b temp_branch
+Switched to a new branch 'temp_branch'
+
+(temp_branch)$git reset --hard cc7e264
+HEAD is now at cc7e264 Added section 'Reset branch after deleted
 ```
 
-Ouvi um amém? :D
+Sucesso! Ouvi um amém? :D
 
 # Outros
 ### Tutoriais
