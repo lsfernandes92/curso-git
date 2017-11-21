@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+
 - [Alguns comandos de funcionalidade do git:](#alguns-comandos-de-funcionalidade-do-git)
     - [$git rebase](#git-rebase)
     - [$git stash](#git-stash)
@@ -14,7 +15,13 @@
     - [Comitei com o usuario e email errado](#comitei-com-o-usuario-e-email-errado)
     - [Quero deletar meu ultimo commit](#quero-deletar-meu-ultimo-commit)
     - [Acidentalmente eu dei um reset hard para outro commit, como volto reverto isso?](#acidentalmente-eu-dei-um-reset-hard-para-outro-commit-como-volto-reverto-isso)
-    - [Comitei com autor e email errado, consigo alterar?](#comitei-com-autor-e-email-errado-consigo-alterar)
+    - [Todos meus commits foram com email e autor errado, consigo alterar?](#todos-meus-commits-foram-com-email-e-autor-errado-consigo-alterar)
+- [Staging](#staging)
+    - [Queria adicionar alterações Staged's(após git add) no commit anterior](#queria-adicionar-altera%C3%A7%C3%B5es-stagedsap%C3%B3s-git-add-no-commit-anterior)
+- [Branches](#branches)
+    - [Quero deletar minha branch remota](#quero-deletar-minha-branch-remota)
+    - [Quero renomear uma branch](#quero-renomear-uma-branch)
+    - [Acidentalmente exclui minha branch, e agora?](#acidentalmente-exclui-minha-branch-e-agora)
 - [Outros](#outros)
     - [Tutoriais](#tutoriais)
     - [Dicas](#dicas)
@@ -152,7 +159,7 @@ Ou uma outra local mas não dada checkout
 
 `(master)$git branch -m nome_branch_antiga nome_nome_branch`
 
-### Acidentalmente exclui minha branch
+### Acidentalmente exclui minha branch, e agora?
 Irei simular possível acontecimento.
 
 Começarei criando uma branch para trabalhar.
@@ -185,7 +192,7 @@ Your branch is up-to-date with 'origin/master'.
 Deleted branch test_branch_to_delete (was cc7e264).
 ```
 
-É ai que entra nossa amigo `reflog`. Que funciona como o logger do que é feito no repo.
+É ai que entra nossa amigo `reflog`. Que funciona como um logger dos acontecimento do repo.
 
 ```
 (master)$git reflog
