@@ -216,6 +216,27 @@ HEAD is now at cc7e264 Added section 'Reset branch after deleted
 
 Sucesso! Ouvi um amém? :D
 
+### Acidentalmente exclui minha branch, mas ela não aparece no `reflog`. E agora?
+Assim que fiz o item acima eu pensei: Como eu recuperaria minha branch se o commit não estivesse no `reflog`? Essa situação se replica quando não sou dono da branch, portanto não estaria com o histórico de commits para recuperar um estado dela. Então achei esse esse passo-a-passo no [stackoverflow](https://stackoverflow.com/questions/16793637/recover-deleted-branch-in-git). Parece verídico, mas não testei em uma situação real.
+
+Use `fsck` para listar commits danificados
+
+`git fsck --full --no-reflogs --unreachable --lost-found`
+
+`cat-file` para mostra algumas informações adicionais para nós guiar
+
+`git cat-file -p SHACommitsDanificados`
+
+E como no tópico anterior basta pegar o hash do blob/commit danificada e restaurar em uma branch temporária
+
+```
+(master)$git checkout -b temp_branch
+Switched to a new branch 'temp_branch'
+
+(temp_branch)$git reset --hard cc7e264
+HEAD is now at cc7e264...
+```
+
 # Outros
 ### Tutoriais
 * [git - guia prático](http://rogerdudler.github.io/git-guide/index.pt_BR.html) - Guia prático e sem complicação
