@@ -2,7 +2,6 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-
 - [Alguns comandos de funcionalidade do git:](#alguns-comandos-de-funcionalidade-do-git)
     - [$git rebase](#git-rebase)
     - [$git stash](#git-stash)
@@ -18,10 +17,13 @@
     - [Todos meus commits foram com email e autor errado, consigo alterar?](#todos-meus-commits-foram-com-email-e-autor-errado-consigo-alterar)
 - [Staging](#staging)
     - [Queria adicionar alterações Staged's(após git add) no commit anterior](#queria-adicionar-altera%C3%A7%C3%B5es-stagedsap%C3%B3s-git-add-no-commit-anterior)
+- [Untracked files](#untracked-files)
+    - [Como deleto o tal dos untracked files do meu `git status`](#como-deleto-o-tal-dos-untracked-files-do-meu-git-status)
 - [Branches](#branches)
     - [Quero deletar minha branch remota](#quero-deletar-minha-branch-remota)
     - [Quero renomear uma branch](#quero-renomear-uma-branch)
     - [Acidentalmente exclui minha branch, e agora?](#acidentalmente-exclui-minha-branch-e-agora)
+    - [Acidentalmente exclui minha branch, mas ela não aparece no `reflog`. E agora?](#acidentalmente-exclui-minha-branch-mas-ela-n%C3%A3o-aparece-no-reflog-e-agora)
 - [Outros](#outros)
     - [Tutoriais](#tutoriais)
     - [Dicas](#dicas)
@@ -108,7 +110,7 @@ Yes! Github tem uma página pública com isso, mas basicamente é o seguinte:
 ```
 git filter-branch --env-filter '
 OLD_EMAIL="your-old-email@example.com"
-CORRECT_NAME="Your Correct Name"
+CORRECT_NAME="Your Correct Name"m
 CORRECT_EMAIL="your-correct-email@example.com"
 if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
 then
@@ -135,6 +137,24 @@ fi
 # Staging
 ### Queria adicionar alterações Staged's(após git add) no commit anterior
 `(branch)$git commit --amend`
+
+# Untracked files
+### Como deleto o tal dos untracked files do meu `git status`
+Primeiro, para saber quais arquivos serão apagados
+
+`git clean -n`
+
+E o comando seguinte irá deletar os arquivos _untracked_
+
+`git clean -f`
+
+Ou também...
+
+`git clean -fd` para remover diretórios
+
+`git clean -fX` para remover _ignored files_
+
+`git clean -fx` para remover _ignored files_  e _non-ignored files_
 
 # Branches
 ### Quero deletar minha branch remota
@@ -240,6 +260,12 @@ HEAD is now at cc7e264...
 # Outros
 ### Tutoriais
 * [git - guia prático](http://rogerdudler.github.io/git-guide/index.pt_BR.html) - Guia prático e sem complicação
+* [Learn Git Branching](https://learngitbranching.js.org/) - Tutorial iterativo de git branch
 
 ### Dicas
 * [Flight rules for git](https://github.com/k88hudson/git-flight-rules) - Guia do que fazer quando fazemos alguma caquinha (onde me espelhei)
+* [Commit messages guide](https://github.com/RomuloOliveira/commit-messages-guide) - Um guia para entender a importância dos commits
+* [Git command Explorer](https://gitexplorer.com/) - Um jeito facil de procurar comandos do git
+* [Git cheatsheet](http://www.ndpsoftware.com/git-cheatsheet/previous/git-cheatsheet.html#loc=local_repo;) - "Gráfico" dos estados do de um arquivo gerenciado pelo git
+* [Anatomia dos pull requests](https://opensource.com/article/18/6/anatomy-perfect-pull-request) - Um guia de como escrever pull requests
+* [Como escrever commits](https://chris.beams.io/posts/git-commit/) - Como escrever commits de qualidade
