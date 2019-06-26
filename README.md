@@ -63,32 +63,118 @@ Um guia que explora os benefícios de utilizar o Git como ferramenta de controle
 
 # Editando commits
 ### O que acabei de comitar?
-`$git show`
+`$git show` ou `$git log --oneline`
 
-### Escrevi a mensagem de commit errada antes de dar push
+### Escrevi a ultima mensagem de commit errada antes de dar push
 `$git commit --amend`
 
 ou
 
 `$git commit --amend -m "xxxxx"`
 
+### Escrevi a mensagem de commit errada antes de dar push
+Supondo um git log igual ao abaixo:
+
+´´´
+fbb654d (HEAD -> master) Update editing commits section
+e3228e7 Update README with untracked files section and more tips and tutorials
+9489f92 Added section for recover branch deleted with none reflog
+05ca271 Deleted '.DS_Store' files
+´´´
+
+Também supondo que quero alterar texto do commit **05ca271**
+
+`$git rebase -i '05ca271^'`
+
+No seu editor de texto padrao irá aparecer algo como:
+
+´´´
+ 1 pick 05ca271 Deleted '.DS_Store' files
+ 2 pick 9489f92 Added section for recover branch deleted with none reflog
+ 3 pick e3228e7 Update README with untracked files section and more tips and tutorials
+ 4 pick fbb654d Update editing commits section
+ 5
+ 6 # Rebase 82e0d8a..fbb654d onto 82e0d8a (4 commands)
+ 7 #
+ 8 # Commands:
+ 9 # p, pick = use commit
+10 # r, reword = use commit, but edit the commit message
+11 # e, edit = use commit, but stop for amending
+12 # s, squash = use commit, but meld into previous commit
+13 # f, fixup = like "squash", but discard this commit's log message
+14 # x, exec = run command (the rest of the line) using shell
+15 # d, drop = remove commit
+´´´
+
+Alteramos a linha 1 para `1 reword 05ca271 Delete '.DS_Store' file`
+
+No seu editor que irá abrir faça as alterações e salve
+
+### Quero juntar meus commits
+Supondo um git log igual ao abaixo:
+
+´´´
+fbb654d (HEAD -> master) Update editing commits section
+e3228e7 Update README with untracked files section and more tips and tutorials
+9489f92 Added section for recover branch deleted with none reflog
+05ca271 Deleted '.DS_Store' files
+´´´
+
+Também supondo que quero juntar os dois ultimos commits
+
+`$git rebase -i '05ca271^'`
+
+No seu editor de texto padrao irá aparecer algo como:
+
+´´´
+ 1 pick 05ca271 Deleted '.DS_Store' files
+ 2 pick 9489f92 Added section for recover branch deleted with none reflog
+ 3 pick e3228e7 Update README with untracked files section and more tips and tutorials
+ 4 pick fbb654d Update editing commits section
+ 5
+ 6 # Rebase 82e0d8a..fbb654d onto 82e0d8a (4 commands)
+ 7 #
+ 8 # Commands:
+ 9 # p, pick = use commit
+10 # r, reword = use commit, but edit the commit message
+11 # e, edit = use commit, but stop for amending
+12 # s, squash = use commit, but meld into previous commit
+13 # f, fixup = like "squash", but discard this commit's log message
+14 # x, exec = run command (the rest of the line) using shell
+15 # d, drop = remove commit
+´´´
+
+Alteramos a linha 1 para `2 squash 9489f92 Added section for recover branch deleted with none reflog`
+
+No seu editor que irá abrir faça as alterações com a nova mensagem de commit e salve
+
+### Quero adicionar minhas novas alterações no ultimo commit
+
+`$git add .` para adicionar as alterações para stage
+
+`$git commit --amend --no-edit` para adicionar as alterações no commit anterior sem editar a mensagem de já comitada. Ou sem a opção **--no-edit** para editar a mensagem do commit anterior.
+
 ### Comitei com o usuario e email errado
 `$git commit --amend --author "Novo author <emailautor@dominio.com>"`
 
 ### Quero deletar meu ultimo commit
-Não recomendado e não faça isso, mas um jeito de deletar um commit após o push é:
+Não recomendado e pois alguem pode peder a referencia dos commits resetados, mas um jeito de deletar um commit após o push é:
 
-`git reset HEAD^ --hard`
+`$git reset HEAD^ --hard`
 
-`git push --force-with-lease [remote] [branch]`
+`$git push --force-with-lease [remote] [branch]`
 
 Jeito recomendado...
 
-`git revert <SHAdoCommitEraddo>`
+`$git revert <SHAdoCommitEraddo>`
 
-Para resetar se você ainda não deu push e mantendo mudanças staged
+Para resetar se você ainda não deu push
 
-`(branch)$ git reset --soft HEAD@{1}`
+`$git reset --mixed HEAD^` - (default) retorna o commit e as mudanças ficam no working directory
+`$git reset --soft HEAD^` - retorna commit e mudanças permanecem staged(index)
+`$git reset --hard HEAD^` - apaga tudo, retorna commit, unstage e deleta
+
+Para todas opções pode-se utilizar **HEAD~1** no lugar do **HEAD^**
 
 ### Acidentalmente eu dei um reset hard para outro commit, como volto reverto isso?
 Você acidentalmente fez isso? Se fodeo! Já era! Brinks... O git mantém um log de tudo por alguns dias(foda, não?).
