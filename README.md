@@ -81,12 +81,12 @@ ou
 ### Escrevi a mensagem de commit errada antes de dar push
 Supondo um git log igual ao abaixo:
 
-´´´
+```
 fbb654d (HEAD -> master) Update editing commits section
 e3228e7 Update README with untracked files section and more tips and tutorials
 9489f92 Added section for recover branch deleted with none reflog
 05ca271 Deleted '.DS_Store' files
-´´´
+```
 
 Também supondo que quero alterar texto do commit **05ca271**
 
@@ -94,7 +94,7 @@ Também supondo que quero alterar texto do commit **05ca271**
 
 No seu editor de texto padrao irá aparecer algo como:
 
-´´´
+```
  1 pick 05ca271 Deleted '.DS_Store' files
  2 pick 9489f92 Added section for recover branch deleted with none reflog
  3 pick e3228e7 Update README with untracked files section and more tips and tutorials
@@ -110,7 +110,7 @@ No seu editor de texto padrao irá aparecer algo como:
 13 # f, fixup = like "squash", but discard this commit's log message
 14 # x, exec = run command (the rest of the line) using shell
 15 # d, drop = remove commit
-´´´
+```
 
 Alteramos a linha 1 para `1 reword 05ca271 Delete '.DS_Store' file`
 
@@ -119,12 +119,12 @@ No seu editor que irá abrir faça as alterações e salve
 ### Quero juntar meus commits
 Supondo um git log igual ao abaixo:
 
-´´´
+```
 fbb654d (HEAD -> master) Update editing commits section
 e3228e7 Update README with untracked files section and more tips and tutorials
 9489f92 Added section for recover branch deleted with none reflog
 05ca271 Deleted '.DS_Store' files
-´´´
+```
 
 Também supondo que quero juntar os dois ultimos commits
 
@@ -132,7 +132,7 @@ Também supondo que quero juntar os dois ultimos commits
 
 No seu editor de texto padrao irá aparecer algo como:
 
-´´´
+```
  1 pick 05ca271 Deleted '.DS_Store' files
  2 pick 9489f92 Added section for recover branch deleted with none reflog
  3 pick e3228e7 Update README with untracked files section and more tips and tutorials
@@ -148,7 +148,7 @@ No seu editor de texto padrao irá aparecer algo como:
 13 # f, fixup = like "squash", but discard this commit's log message
 14 # x, exec = run command (the rest of the line) using shell
 15 # d, drop = remove commit
-´´´
+```
 
 Alteramos a linha 1 para `2 squash 9489f92 Added section for recover branch deleted with none reflog`
 
