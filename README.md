@@ -2,7 +2,10 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Alguns comandos de funcionalidade do git:](#alguns-comandos-de-funcionalidade-do-git)
+- [Outro guia de git](#outro-guia-de-git)
+    - [Trabalhando em Equipe com Controle e Segurança](#trabalhando-em-equipe-com-controle-e-seguran%C3%A7a)
+      - [Principais benefícios do Git:](#principais-benef%C3%ADcios-do-git)
+    - [Alguns comandos de funcionalidade do git:](#alguns-comandos-de-funcionalidade-do-git)
     - [$git rebase](#git-rebase)
     - [$git stash](#git-stash)
     - [$git checkout](#git-checkout)
@@ -10,7 +13,10 @@
     - [$git reset [hash_commit]](#git-reset-hash_commit)
 - [Editando commits](#editando-commits)
     - [O que acabei de comitar?](#o-que-acabei-de-comitar)
+    - [Escrevi a ultima mensagem de commit errada antes de dar push](#escrevi-a-ultima-mensagem-de-commit-errada-antes-de-dar-push)
     - [Escrevi a mensagem de commit errada antes de dar push](#escrevi-a-mensagem-de-commit-errada-antes-de-dar-push)
+    - [Quero juntar meus commits](#quero-juntar-meus-commits)
+    - [Quero adicionar minhas novas alterações no ultimo commit](#quero-adicionar-minhas-novas-altera%C3%A7%C3%B5es-no-ultimo-commit)
     - [Comitei com o usuario e email errado](#comitei-com-o-usuario-e-email-errado)
     - [Quero deletar meu ultimo commit](#quero-deletar-meu-ultimo-commit)
     - [Acidentalmente eu dei um reset hard para outro commit, como volto reverto isso?](#acidentalmente-eu-dei-um-reset-hard-para-outro-commit-como-volto-reverto-isso)
